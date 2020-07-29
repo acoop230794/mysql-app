@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="/">HOME</a></h1>
+    <ul>
+        {{#each users}}
+            <li>{{this.user_name}} {{this.email}}
+                <form action="/update/{{this.id}}" method="GET">
+                    <button type='submit'>EDIT</button>
+                </form>
+                <form action="/{{this.id}}" method="POST">
+                    <button type="submit">DEL</button>
+                </form> 
+            </li>
+        {{/each}}
+    </ul>
+    
+    <h4>{{dmessage}}</h4>
+    <a href="/register">Register</a>
+</body>
+</html>

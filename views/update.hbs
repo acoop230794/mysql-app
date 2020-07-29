@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    
+    <ul>
+        {{#each updateUsers}}
+
+            <form action="/update/{{this.id}}" method="POST">
+                <input type="text" name="username" value="{{this.user_name}}" placeholder="{{this.user_name}}" /> <br/>
+                <input type="email" name="email" value="{{this.email}}" placeholder="{{this.email}}"/> <br>
+                <button type='submit'>UPDATE</button>
+            </form>
+
+            <form action="/update/password/{{this.id}}" method="POST">
+                <input type="password" name="password" placeholder="Current password..." /> <br>
+                <input type="password" name="newPassword"  placeholder="New password..." required/> <br>
+                <input type="password" name="confirmPassword"  placeholder="Confirm password..."required/> <br>
+                <button type='submit'>UPDATE PASSWORD</button>
+            </form>
+
+        {{/each}}
+    </ul>
+
+    <h1>{{umessage}}</h1>
+    <a href="/">Home</a>
+</body>
+</html>
